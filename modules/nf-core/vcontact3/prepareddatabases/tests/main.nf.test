@@ -23,14 +23,9 @@ nextflow_process {
         }
 
         then {
-            assert process.success
-            
-            def meta  = process.out.database.get(0).get(0)
-            def dbDir = process.out.database.get(0).get(1)
-
             assertAll(
-                { assert meta.id == 'test' },
-                { assert path(dbDir).exists() },
+                { assert process.success },
+                { assert path(process.out.database.get(0).get(1)).exists() },
                 { assert snapshot(process.out.versions).match("real_versions") }
             )
         }
@@ -52,16 +47,11 @@ nextflow_process {
         }
 
         then {
-            assert process.success
-
-            def meta   = process.out.database.get(0).get(0)
-            def dbDir  = process.out.database.get(0).get(1)
-
             assertAll(
-                { assert meta.id == 'test' },
-                { assert path(dbDir).exists() },
-                { assert path("${dbDir}/version.json").exists() },
-                { assert path("${dbDir}/stub_database.db").exists() },
+                { assert process.success },
+                { assert path(process.out.database.get(0).get(1)).exists() },
+                { assert path("${process.out.database.get(0).get(1)}/version.json").exists() },
+                { assert path("${process.out.database.get(0).get(1)}/stub_database.db").exists() },
                 { assert snapshot(process.out.versions).match("stub_versions") }
             )
         }

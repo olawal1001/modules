@@ -26,10 +26,10 @@ process VCONTACT3_PREPAREDDATABASES {
         --set-location "${prefix}"  \\
         $args
 
-    cat <<EOF > versions.yml
+    cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        vcontact3: 3.1.6
-    EOF
+        vcontact3: \$(vcontact3 version)
+    END_VERSIONS
     """
 
     stub:
@@ -40,9 +40,9 @@ process VCONTACT3_PREPAREDDATABASES {
     touch ${prefix}/stub_database.db
     
 
-    cat <<EOF > versions.yml
-    "${task.process}": 
-        vcontact3: 3.1.6 
-    EOF
+    cat <<-END_VERSIONS > versions.yml
+    "${task.process}":
+        vcontact3: \$(vcontact3 version)
+    END_VERSIONS
     """
 }

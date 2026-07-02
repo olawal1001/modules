@@ -1,0 +1,26 @@
+{
+    "real_versions": {
+        "content": [
+            [
+                "versions.yml:md5,eef00dbab0560cd5f7e06c11bafe33de"
+            ]
+        ],
+        "timestamp": "2026-05-26T15:54:18.089628371",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "26.04.1"
+        }
+    },
+    "stub_versions": {
+        "content": [
+            [
+                "versions.yml:md5,eef00dbab0560cd5f7e06c11bafe33de"
+            ]
+        ],
+        "timestamp": "2026-07-02T05:51:26.862830382",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "26.04.4"
+        }
+    }
+}
